@@ -1,13 +1,17 @@
-type Params = {
-  params: {
-  slug: string
-  }
+type PageProps = {
+  params: { slug: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export async function generateMetadata({ params }: PageProps) {
+  return { title: `Post: ${params.slug}` };
 }
 
-export async function generateMetadata({ params }: Params) {
-  return { title: `Post: ${params.slug}` }
-}
-
-export default function Page({ params }: Params) {
-  return <><h1>Slug: {params.slug}</h1><p>Nhatvip</p></>
+export default function Page({ params }: PageProps) {
+  return (
+    <>
+      <h1>Slug: {params.slug}</h1>
+      <p>Nhatvip</p>
+    </>
+  );
 }

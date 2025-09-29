@@ -6,11 +6,11 @@ import "@testing-library/jest-dom";
 import Page from "./page";
 
 it("App Router: Works with dynamic route segments", () => {
-  render(<Page params={{ slug: "Test" }} />);
+  render(<Page params={{ slug: "Test" }} searchParams={{}} />); // Thêm searchParams
   expect(screen.getByRole("heading")).toHaveTextContent("Slug: Test");
 });
 
 it('Nhatvip should be in the document', () => {
-  render (<Page params={{ slug: 'Test' }} />);
+  render (<Page params={{ slug: 'Test' }} searchParams={{}} />); // Thêm searchParams
   expect(screen.getByText('Nhatvip')).toBeInTheDocument();
 })
